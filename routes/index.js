@@ -34,11 +34,13 @@ router.post('/add_question', function (req, res) {
 
 router.get('/', function(req, res, next) {
 
-  /*
+/*
+
   //housecleaning
    models.answers_ew_test.drop();
     models.question_ew_test.drop();
-  */
+*/
+
 
 
   models.answers_ew_test.findAll().then(function(answers) {
