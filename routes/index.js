@@ -9,24 +9,22 @@ var env       = process.env.NODE_ENV || "development";
 var config    = require(__dirname + '/../config/config.json')[env];
 var sequelize = new Sequelize(config.database, config.username, config.password, config);
 
-
 router.use( bodyParser.json() );       // to support JSON-encoded bodies
 router.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
 
-router.post('/', function (req, res) {
+router.post('/add_question', function (req, res) {
 
   var question_text = req.body.question_text;
-  var answer_array_string = req.body.answer_array_string;
+ var answer_array_string = req.body.answer_array_string;
 
-
-  models.question_ew_test.sync().then(function () {
-    return models.question_ew_test.create({
+  models.question_ew_test.create({
       question: question_text,
       answer_array: answer_array_string
     });
-  });
+
+
 
 
 
@@ -36,6 +34,11 @@ router.post('/', function (req, res) {
 
 router.get('/', function(req, res, next) {
 
+  /*
+  //housecleaning
+   models.answers_ew_test.drop();
+    models.question_ew_test.drop();
+  */
 
 
   models.answers_ew_test.findAll().then(function(answers) {

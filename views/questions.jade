@@ -10,14 +10,28 @@ block content
          h4(class='question_page_title' id='t_#{questions.length}') question #{question_counter+1} out of #{questions.length}
          div.small_text (questions are randomly chosen)
 
-         -for(var i=0; i < questions.length; i++)
-            div(class='question-container' id='container#{i}')
-               h2(id='question#{i}') #{questions[i].question}
-               -var array = questions[i].answer_array.split(",");
-               -for(var j = 0; j < array.length; j++)
 
-                  button(class='btn btn-default answer-button' id='#{i}_#{j}')= array[j]
-                  br
+            -for(var i=0; i < questions.length; i++)
+               div(class='question-container' id='container#{i}')
+                  form(method='post', action='/questions/add_answer')
+                     h2(id='question#{i}') #{questions[i].question}
+
+                     -var question_string = String(questions[i].question);
+                     input(type='hidden', name='question_string', value='#{question_string}')/
+
+                     -var array = (questions[i].answer_array !== null)?questions[i].answer_array.split(","):[];
+
+                        -for(var j = 0; j < array.length; j++)
+                           .input-group
+                              span.input-group-addon
+                                 input(type='radio', name='answer_string', value='#{array[j]}')/
+                              input(type='text', class='form-control', value='#{array[j]}')/
+
+
+
+
+                     input(type='submit', class='btn btn-default answer-button' id='#{i}_#{j}', value='submit')
+                     br
 
 
 

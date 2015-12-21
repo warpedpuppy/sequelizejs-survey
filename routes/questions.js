@@ -18,18 +18,17 @@ router.get('/', function(req, res, next) {
 
 
 
-router.post('/', function (req, res) {
+router.post('/add_answer', function (req, res) {
 
     var question_string = req.body.question_string;
     var answer_string = req.body.answer_string;
 
 
-    models.answers_ew_test.sync().then(function () {
-        return models.answers_ew_test.create({
+
+    models.answers_ew_test.create({
             question: question_string,
             answer: answer_string
         });
-    });
 
 });
 

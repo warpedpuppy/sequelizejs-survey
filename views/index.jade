@@ -17,12 +17,12 @@ block content
       .row
         .col-sm-10.col-md-12
           h1 add a question
-          form.form-horizontal
+          form(method='post',  class='form-horizontal')
             .form-group
               label.col-sm-2.control-label Question:
               .col-sm-10
 
-                input(type='text', class='form-control', id='question_text', placeholder='type question here')/
+                input(type='text', class='form-control', name='question_text', id='question_text', placeholder='type question here')/
 
 
 
@@ -30,11 +30,11 @@ block content
               .form-group
                 label.col-sm-2.control-label answer #{n}:
                 .col-sm-10
-                  input(type='text', class='form-control', id='question_answer_#{n}', placeholder='answer #{n}' )/
+                  input(type='text', class='form-control', id='question_answer_#{n}', name='question_answer_#{n}',placeholder='answer #{n}' )/
 
 
             .col-sm-12.text-right
-              btn.btn.btn-success.add-question-button submit question to database
+              btn(class='btn btn-success add-question-button') submit question to database
 
             .col-sm-12.text-right
               btn.btn.btn-warning.generate-random-question-button generate random question (make life easier!)

@@ -27,7 +27,7 @@ $(function(){
 
             var answer_array_string = [answer_1, answer_2, answer_3, answer_4, answer_5].toString();
 
-            $.post("/", {question_text: question_text, answer_array_string: answer_array_string}, function (data) {
+            $.post("/add_question", {question_text: question_text, answer_array_string: answer_array_string}, function (data) {
 
             });
             $("#question_text").val("");
@@ -43,6 +43,7 @@ $(function(){
         }
 
     });
+
 
 
     $(".answer-button").click(function(){
@@ -61,14 +62,12 @@ $(function(){
         var question = $("#question"+question_number).text();
 
 
-        var answer = String($(this).text());
-        $("#response").text("You answered: "+answer+". Thank you!");
+
+        $("#response").text("Thank you!");
 
         $("#container"+question_number).css("display", "none");
 
-        $.post( "/questions", {question_string:question, answer_string:answer}, function( data ) {
 
-        });
 
 
         //choose a first question:
@@ -87,6 +86,7 @@ $(function(){
 
 
     });
+
 
 
 
