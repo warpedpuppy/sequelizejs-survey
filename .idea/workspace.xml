@@ -2505,8 +2505,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5339806" vertical-offset="70" max-vertical-offset="585">
-              <caret line="21" column="93" selection-start-line="21" selection-start-column="93" selection-end-line="21" selection-end-column="93" />
+            <state vertical-scroll-proportion="0.029126214" vertical-offset="0" max-vertical-offset="585">
+              <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -2930,12 +2930,12 @@
       <option name="number" value="Default" />
       <updated>1450673039838</updated>
       <workItem from="1450673041078" duration="294000" />
-      <workItem from="1450673363240" duration="2334000" />
+      <workItem from="1450673363240" duration="2402000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2628000" />
+    <option name="totallyTimeSpent" value="2696000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="189" y="170" width="1380" height="973" extended-state="0" />
@@ -3086,8 +3086,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5339806" vertical-offset="70" max-vertical-offset="585">
-          <caret line="21" column="93" selection-start-line="21" selection-start-column="93" selection-end-line="21" selection-end-column="93" />
+        <state vertical-scroll-proportion="0.029126214" vertical-offset="0" max-vertical-offset="585">
+          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
           <folding />
         </state>
       </provider>
