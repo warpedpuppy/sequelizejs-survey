@@ -3,7 +3,7 @@ Welcome!
 
 In order to see this app, first you must fill in the information in the config file (/config/config.json).  This is very important.  The program will create two tables on whatever database you specify in the config file, called "answers_ew_tests" and "question_ew_tests". Just letting you know this so you can delete them when you are done.
 
-Then if you just use your command line to go to the root directory of the app, and type in:
+Then if you just use your command line to go to the root directory of the app, type in:
 
 ./bin/www
 
