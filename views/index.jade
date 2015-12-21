@@ -1,0 +1,74 @@
+extends layout
+
+block content
+
+    .container
+      .row
+        .col-sm-10.col-md-12.text-center
+          ul.pagination
+            li#add-question-li.active
+              a(onclick='return false', id='add_question_button') add a question
+            li#view-answers-li
+              a(onclick='return false', id='view_answers_button') view answers
+
+
+
+    .container#add-question-container
+      .row
+        .col-sm-10.col-md-12
+          h1 add a question
+          form.form-horizontal
+            .form-group
+              label.col-sm-2.control-label Question:
+              .col-sm-10
+
+                input(type='text', class='form-control', id='question_text', placeholder='type question here')/
+
+
+
+            - for (var n = 1;n < 6; n++)
+              .form-group
+                label.col-sm-2.control-label answer #{n}:
+                .col-sm-10
+                  input(type='text', class='form-control', id='question_answer_#{n}', placeholder='answer #{n}' )/
+
+
+            .col-sm-12.text-right
+              btn.btn.btn-success.add-question-button submit question to database
+
+            .col-sm-12.text-right
+              btn.btn.btn-warning.generate-random-question-button generate random question (make life easier!)
+
+
+    .container#answer-container
+      .row
+        .col-sm-10.col-md-12
+          h1 There are #{answers.length} answers
+
+
+          table.table.table-striped
+            thead
+              tr
+                th question
+                th answer
+            tbody
+              -for(var i = 0; i < answers.length; i++)
+                tr
+                  td= answers[i].question
+                  td= answers[i].answer
+
+
+
+
+    .container
+      .row
+        .col-sm-10.col-md-12
+          h4#add_a_question_feedback
+
+
+
+
+
+
+
+
