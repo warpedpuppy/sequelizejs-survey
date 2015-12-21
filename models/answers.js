@@ -8,7 +8,5 @@ module.exports = function(sequelize, DataTypes) {
         answer: DataTypes.STRING
     });
 
-    //answers_ew_test.sync();
-
     return answers_ew_test;
 };

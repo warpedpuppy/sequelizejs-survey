@@ -25,11 +25,11 @@ $(function(){
         answer_4 !== "" &&
         answer_5 !== "") {
 
+            $("#add_a_question_feedback").text("");
             var answer_array_string = [answer_1, answer_2, answer_3, answer_4, answer_5].toString();
 
-            $.post("/add_question", {question_text: question_text, answer_array_string: answer_array_string}, function (data) {
+            $.post("/add_question", {question_text: question_text, answer_array_string: answer_array_string});
 
-            });
             $("#question_text").val("");
             $("#question_answer_1").val("");
             $("#question_answer_2").val("");
@@ -106,7 +106,7 @@ $(function(){
 
 
     $(".generate-random-question-button").click(function(){
-
+        $("#add_a_question_feedback").text("");
         var question_string = "Is "+String(Math.floor(Math.random()*1000))+" a nice number?";
         $("#question_text").val(question_string);
         $("#question_answer_1").val("yes");

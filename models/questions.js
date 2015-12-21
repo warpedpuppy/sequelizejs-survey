@@ -6,7 +6,6 @@ module.exports = function(sequelize, DataTypes) {
         question: DataTypes.STRING,
         answer_array: DataTypes.STRING
     });
-    //question_ew_test.sync();
 
     return question_ew_test;
 };
