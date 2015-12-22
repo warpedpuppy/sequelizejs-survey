@@ -21,7 +21,8 @@ router.get('/', function(req, res, next) {
 router.post('/add_answer', function (req, res) {
 
     var question_string = req.body.question_string;
-    var answer_string = req.body.answer_string;
+    var answer_string = (req.body.answer_string !== undefined)?req.body.answer_string:"No answer was chosen.";
+
 
     models.answers_ew_test.create({
             question: question_string,
