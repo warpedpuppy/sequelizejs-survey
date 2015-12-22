@@ -10,34 +10,43 @@ block content
               a(onclick='return false', id='add_question_button') add a question
             li#view-answers-li
               a(onclick='return false', id='view_answers_button') view answers
+            li#empty-db-li
+              a(onclick='return false', id='view_answers_button') empty databases
 
 
-
-    .container#add-question-container
+    .container#empty-db-container
       .row
         .col-sm-10.col-md-12
-          h1 add a question
-          form(method='post',  class='form-horizontal')
-            .form-group
-              label.col-sm-2.control-label Question:
-              .col-sm-10
+          h1 empty databases:
+          form(action='/empty_dbs', method='post')
+            input(class='btn btn-success', style='display:block;margin:0px auto',type='submit', value='click here to empty the databases')/
 
-                input(type='text', class='form-control', name='question_text', id='question_text', placeholder='type question here')/
-
-
-
-            - for (var n = 1;n < 6; n++)
+    -if(showform == 1)
+      .container#add-question-container
+        .row
+          .col-sm-10.col-md-12
+            h1 add a question
+            form(method='post',  class='form-horizontal')
               .form-group
-                label.col-sm-2.control-label answer #{n}:
+                label.col-sm-2.control-label Question:
                 .col-sm-10
-                  input(type='text', class='form-control', id='question_answer_#{n}', name='question_answer_#{n}',placeholder='answer #{n}' )/
+
+                  input(type='text', class='form-control', name='question_text', id='question_text', placeholder='type question here')/
 
 
-            .col-sm-12.text-right
-              btn(class='btn btn-success add-question-button') submit question to database
 
-            .col-sm-12.text-right
-              btn.btn.btn-warning.generate-random-question-button generate random question (make life easier!)
+              - for (var n = 1;n < 6; n++)
+                .form-group
+                  label.col-sm-2.control-label answer #{n}:
+                  .col-sm-10
+                    input(type='text', class='form-control', id='question_answer_#{n}', name='question_answer_#{n}',placeholder='answer #{n}' )/
+
+
+              .col-sm-12.text-right
+                btn(class='btn btn-success add-question-button') submit question to database
+
+              .col-sm-12.text-right
+                btn.btn.btn-warning.generate-random-question-button generate random question (make life easier!)
 
 
     .container#answer-container

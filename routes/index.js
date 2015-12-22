@@ -20,6 +20,26 @@ router.post('/add_question', function (req, res) {
 
 });
 
+
+
+router.post('/empty_dbs', function (req, res) {
+
+    models.answers_ew_test.truncate();
+    models.question_ew_test.truncate();
+
+    var showform = 1;
+    var answers = [];
+    res.render('index', {
+        showform: showform,
+        answers:answers
+    });
+
+});
+
+
+
+
+
 router.get('/', function(req, res, next) {
 
 /*  //housecleaning -- uncomment out this section to clean out dbs
@@ -27,10 +47,10 @@ router.get('/', function(req, res, next) {
     models.question_ew_test.drop();*/
 
   models.answers_ew_test.findAll().then(function(answers) {
-
+  var showform = 1;
     res.render('index', {
-      title: 'answers',
-      answers: answers
+        showform: showform,
+        answers: answers
     });
 
   });

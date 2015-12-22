@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
    models.question_ew_test.findAll().then(function(questions) {
 
        res.render('questions', {
-           title: 'questions',
+
            questions: questions
        });
    });

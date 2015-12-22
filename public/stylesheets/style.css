@@ -49,3 +49,9 @@ font-style: italic;
   font-size: 12px;
   font-style: italic;
 }
+#empty-db-container {
+  display: none;
+ }
+.input-group {
+  margin:10px;
+}

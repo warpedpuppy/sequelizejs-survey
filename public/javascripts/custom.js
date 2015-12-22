@@ -9,6 +9,7 @@ $(function(){
     var active_question;
 
 
+
     $(".add-question-button").click(function(){
 
         var question_text = $("#question_text").val();
@@ -19,14 +20,14 @@ $(function(){
         var answer_5 = $("#question_answer_5").val();
 
         if(question_text !== "" &&
-        answer_1 !== "" &&
-        answer_2 !== "" &&
-        answer_3 !== "" &&
-        answer_4 !== "" &&
-        answer_5 !== "") {
+            answer_1 !== "" &&
+            answer_2 !== "" &&
+            answer_3 !== "" &&
+            answer_4 !== "" &&
+            answer_5 !== "") {
 
             $("#add_a_question_feedback").text("");
-            var answer_array_string = [answer_1, answer_2, answer_3, answer_4, answer_5].toString();
+            var answer_array_string = answer_1+"|--|"+ answer_2+"|--|"+answer_3+"|--|"+answer_4+"|--|"+answer_5;
 
             $.post("/add_question", {question_text: question_text, answer_array_string: answer_array_string});
 
@@ -94,7 +95,9 @@ $(function(){
         $("#answer-container").css("display", "none");
         $("#add-question-container").fadeIn("fast");
         $("#view-answers-li").removeClass("active");
-        $("#add-question-li").addClass("active")
+        $("#add-question-li").addClass("active");
+        $("#empty-db-container").css("display", "none");
+        $("#empty-db-li").removeClass("active");
 
     });
     $("#view_answers_button").click(function(){
@@ -102,7 +105,22 @@ $(function(){
         $("#add-question-container").css("display", "none");
         $("#view-answers-li").addClass("active");
         $("#add-question-li").removeClass("active");
+        $("#empty-db-container").css("display", "none");
+        $("#empty-db-li").removeClass("active");
     });
+    $("#empty-db-li").click(function(){
+        $("#answer-container").css("display", "none");
+        $("#add-question-container").css("display", "none");
+
+        $("#view-answers-li").removeClass("active");
+        $("#add-question-li").removeClass("active");
+        $("#empty-db-li").addClass("active");
+        $("#empty-db-container").fadeIn("fast");
+    });
+
+
+
+
 
 
     $(".generate-random-question-button").click(function(){

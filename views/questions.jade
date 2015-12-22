@@ -19,7 +19,7 @@ block content
                      -var question_string = String(questions[i].question);
                      input(type='hidden', name='question_string', value='#{question_string}')/
 
-                     -var array = (questions[i].answer_array !== null)?questions[i].answer_array.split(","):[];
+                     -var array = (questions[i].answer_array !== null)?questions[i].answer_array.split("|--|"):[];
 
                         -for(var j = 0; j < array.length; j++)
                            .input-group
