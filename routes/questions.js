@@ -6,10 +6,9 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
 
+    //BECAUSE THIS IS A TEST APP, I'M SENDING THE ENTIRE QUESTION ARRAY TO THE QUESTIONS VIEW.  IF THIS WERE
    models.question_ew_test.findAll().then(function(questions) {
-
        res.render('questions', {
-
            questions: questions
        });
    });

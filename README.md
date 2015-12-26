@@ -25,4 +25,4 @@ THIRD:  IN A BROWSER, OPEN: http://localhost:3000/
 
 In order to spare you the burden of having to create multiple choice questions, I have a random question generator button on the admin page.
 
-
+This app assumes that you are a new user every time you go to the 'answer questions!' page.  So you will always get all of the questions, asked in random order, when you hit that page.

@@ -9,7 +9,80 @@ $(function(){
     var active_question;
 
 
+    //because this is a test app, it assumes that every time you hit the questions page you are a new user
+    //the following code sets up the page for you
 
+    if(window.location.href.indexOf("questions") > -1) {
+
+        //get total questions
+        var id = $(".question_page_title").attr("id");
+        var temp_array = id.split("_");
+        var total_questions = temp_array[1];
+
+        //create array that can be used to make sure that no question is asked more than once
+        for(var i = 0; i < total_questions; i++){
+            available_questions.push(i);
+        }
+
+        //choose a first question:
+        active_question = Math.floor(Math.random()*available_questions.length);
+
+        //fade in that question
+        $("#container"+active_question).fadeIn("fast");
+        var less_array_like_integer = active_question+1;
+
+        if(total_questions > 0)
+            $(".question_page_title").text("this is your first question out of " + total_questions);
+        else
+            $(".question_page_title").text("There are no questions to answer yet - go to admin section and add some!");
+
+    };
+
+
+    //BUTTON HANDLERS
+
+    //the first three are for the pagination bar at the top of the index
+    $("#add_question_button").click(function(){
+        $("#add_a_question_feedback").text("");
+
+        $("#answer-container").css("display", "none");
+        $("#add-question-container").fadeIn("fast");
+        $("#empty-db-container").css("display", "none");
+
+        $("#view-answers-li").removeClass("active");
+        $("#add-question-li").addClass("active");
+        $("#empty-db-li").removeClass("active");
+
+    });
+    $("#view_answers_button").click(function(){
+        $("#add_a_question_feedback").text("");
+
+        $("#answer-container").fadeIn("fast");
+        $("#add-question-container").css("display", "none");
+        $("#empty-db-container").css("display", "none");
+
+        $("#view-answers-li").addClass("active");
+        $("#add-question-li").removeClass("active");
+        $("#empty-db-li").removeClass("active");
+
+    });
+    $("#empty-db-li").click(function(){
+        $("#add_a_question_feedback").text("");
+
+        $("#answer-container").css("display", "none");
+        $("#add-question-container").css("display", "none");
+        $("#empty-db-container").fadeIn("fast");
+
+        $("#view-answers-li").removeClass("active");
+        $("#add-question-li").removeClass("active");
+        $("#empty-db-li").addClass("active");
+
+    });
+
+
+
+
+    //ADDING A QUESTION TO THE DATABASE
     $(".add-question-button").click(function(){
 
         var question_text = $("#question_text").val();
@@ -47,6 +120,8 @@ $(function(){
 
 
 
+
+    //ADDING AN ANSWER TO THE DATABASE
     $(".answer-button").click(function(){
 
         var temp = active_question+1;
@@ -71,7 +146,7 @@ $(function(){
 
 
 
-        //choose a first question:
+        //choose a next question:
         active_question = Math.floor(Math.random()*available_questions.length);
 
 
@@ -91,38 +166,9 @@ $(function(){
 
 
 
-    $("#add_question_button").click(function(){
-        $("#answer-container").css("display", "none");
-        $("#add-question-container").fadeIn("fast");
-        $("#view-answers-li").removeClass("active");
-        $("#add-question-li").addClass("active");
-        $("#empty-db-container").css("display", "none");
-        $("#empty-db-li").removeClass("active");
-
-    });
-    $("#view_answers_button").click(function(){
-        $("#answer-container").fadeIn("fast");
-        $("#add-question-container").css("display", "none");
-        $("#view-answers-li").addClass("active");
-        $("#add-question-li").removeClass("active");
-        $("#empty-db-container").css("display", "none");
-        $("#empty-db-li").removeClass("active");
-    });
-    $("#empty-db-li").click(function(){
-        $("#answer-container").css("display", "none");
-        $("#add-question-container").css("display", "none");
-
-        $("#view-answers-li").removeClass("active");
-        $("#add-question-li").removeClass("active");
-        $("#empty-db-li").addClass("active");
-        $("#empty-db-container").fadeIn("fast");
-    });
 
 
-
-
-
-
+    //GENERATING RANDOM QUESTION
     $(".generate-random-question-button").click(function(){
         $("#add_a_question_feedback").text("");
         var question_string = "Is "+String(Math.floor(Math.random()*1000))+" a nice number?";
@@ -138,32 +184,6 @@ $(function(){
     })
 
 
-    //some set up things for the question page
-    if(window.location.href.indexOf("questions") > -1) {
 
-        //get total questions
-        var id = $(".question_page_title").attr("id");
-        var temp_array = id.split("_");
-        var total_questions = temp_array[1];
-
-
-        for(var i = 0; i < total_questions; i++){
-            available_questions.push(i);
-        }
-
-        //choose a first question:
-        active_question = Math.floor(Math.random()*available_questions.length);
-
-
-        //fade in that question
-        $("#container"+active_question).fadeIn("fast");
-        var less_array_like_integer = active_question+1;
-
-        if(total_questions >0)
-            $(".question_page_title").text("this is your first question out of " + total_questions);
-        else
-            $(".question_page_title").text("There are no questions to answer yet - go to admin section and add some!");
-
-    };
 
 });

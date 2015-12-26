@@ -27,11 +27,23 @@ router.post('/empty_dbs', function (req, res) {
     models.answers_ew_test.truncate();
     models.question_ew_test.truncate();
 
-    var showform = 1;
-    var answers = [];
-    res.render('index', {
-        showform: showform,
-        answers:answers
+    res.redirect("/");
+
+});
+
+
+
+
+router.get('/empty_dbs', function(req, res, next) {
+
+
+    models.answers_ew_test.findAll().then(function(answers) {
+        var showform = 1;
+        res.render('index', {
+            showform: showform,
+            answers: answers
+        });
+
     });
 
 });
@@ -39,12 +51,15 @@ router.post('/empty_dbs', function (req, res) {
 
 
 
-
 router.get('/', function(req, res, next) {
 
-/*  //housecleaning -- uncomment out this section to clean out dbs
-   models.answers_ew_test.drop();
-    models.question_ew_test.drop();*/
+    /*
+    //housecleaning -- uncomment out this section to delete dbs
+    //WARNING: THIS WILL CAUSE AN ERROR TO BE THROWN THE FIRST TIME YOU USE IT --
+    //THIS IS ONLY HERE SO I CAN MAKE SURE THE FIRST TIME THIS IS USED IT DOESN'T BREAK
+        models.answers_ew_test.drop();
+        models.question_ew_test.drop();
+    */
 
   models.answers_ew_test.findAll().then(function(answers) {
   var showform = 1;
