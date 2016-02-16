@@ -13,7 +13,7 @@ router.post('/add_question', function (req, res) {
   var question_text = req.body.question_text;
   var answer_array_string = req.body.answer_array_string;
 
-  models.question_ew_test.create({
+     models.question_ew_test.create({
       question: question_text,
       answer_array: answer_array_string
     });
@@ -24,8 +24,8 @@ router.post('/add_question', function (req, res) {
 
 router.post('/empty_dbs', function (req, res) {
 
-    models.answers_ew_test.truncate();
-    models.question_ew_test.truncate();
+    models.answers_ew_test.destroy({truncate:true});
+    models.question_ew_test.destroy({truncate:true});
 
     res.redirect("/");
 
@@ -53,13 +53,13 @@ router.get('/empty_dbs', function(req, res, next) {
 
 router.get('/', function(req, res, next) {
 
-    /*
+/*
     //housecleaning -- uncomment out this section to delete dbs
     //WARNING: THIS WILL CAUSE AN ERROR TO BE THROWN THE FIRST TIME YOU USE IT --
     //THIS IS ONLY HERE SO I CAN MAKE SURE THE FIRST TIME THIS IS USED IT DOESN'T BREAK
         models.answers_ew_test.drop();
-        models.question_ew_test.drop();
-    */
+        models.question_ew_test.drop();*/
+
 
   models.answers_ew_test.findAll().then(function(answers) {
   var showform = 1;

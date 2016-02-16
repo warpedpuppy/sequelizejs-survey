@@ -102,6 +102,7 @@ $(function(){
             $("#add_a_question_feedback").text("");
             var answer_array_string = answer_1+"|--|"+ answer_2+"|--|"+answer_3+"|--|"+answer_4+"|--|"+answer_5;
 
+
             $.post("/add_question", {question_text: question_text, answer_array_string: answer_array_string});
 
             $("#question_text").val("");
