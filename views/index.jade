@@ -52,7 +52,7 @@ block content
     .container#answer-container
       .row
         .col-sm-10.col-md-12
-          --if(answers === undefined) answers = [];
+          -if(answers === undefined) answers = [];
           -var str = (answers.length != 1)?"There are "+answers.length+" answers:":"There is one answer:";
           h1#answers_h1= str
 
