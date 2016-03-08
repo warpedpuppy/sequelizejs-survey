@@ -63,7 +63,7 @@ router.get('/', function(req, res, next) {
 
   models.answers_ew_test.findAll().then(function(answers) {
   var showform = 1;
-      console.log("answers = "+answers)
+
     res.render('index', {
         showform: showform,
         answers: answers
