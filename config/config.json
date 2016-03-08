@@ -8,21 +8,21 @@
     "records_per_li": 10,
     "user_id": "asdf",
     "admin_password":"asdf",
-    "username": "ted",
-    "password": "sqlPassword",
-    "database": "test_db",
+    "username": "",
+    "password": "",
+    "database": "",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "records_per_page": 40,
     "records_per_li": 10,
-    "user_id": "asdf",
-    "admin_password":"tugtugtug!",
-    "username": "ashlander",
-    "password": "HYDreDss7PvWvMKn",
-    "database": "ashlander",
-    "host": "208.109.186.219",
+    "user_id": "",
+    "admin_password":"",
+    "username": "",
+    "password": "",
+    "database": "",
+    "host": "",
     "dialect": "mysql"
   }
 }

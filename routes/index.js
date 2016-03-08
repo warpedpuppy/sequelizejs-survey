@@ -59,7 +59,6 @@ router.get('/', function(req, res, next) {
     //THIS IS ONLY HERE SO I CAN MAKE SURE THE FIRST TIME THIS IS USED IT DOESN'T BREAK
         models.answers_ew_test.drop();
         models.question_ew_test.drop();*/
-    answers = [];
 
 
   models.answers_ew_test.findAll().then(function(answers) {

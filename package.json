@@ -10,7 +10,8 @@
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "jade": "~1.11.0",
-    "sequelize": "^2.0.0-rc8",
+    "mysql": "^2.10.2",
+    "sequelize": "3.17.0",
     "sequelize-cli": "^2.2.1",
     "sqlite": "0.0.4",
     "sqlite3": "^3.1.1"
